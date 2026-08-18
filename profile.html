@@ -12,7 +12,7 @@ body { background:var(--paper); color:var(--text); font-family:'Noto Sans JP',sa
 nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(248,245,239,0.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:0 2rem; height:56px; display:flex; align-items:center; justify-content:space-between; }
 .nav-logo { font-family:'Shippori Mincho',serif; font-size:0.9rem; font-weight:600; color:var(--accent); letter-spacing:0.05em; text-decoration:none; }
 .nav-links { display:flex; gap:1.8rem; list-style:none; }
-.nav-links a { font-family:'JetBrains Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); text-decoration:none; transition:color 0.2s; }
+.nav-links a { font-family:'JetBrains Mono',monospace; font-size:0.9rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--text-muted); text-decoration:none; transition:color 0.2s; }
 .nav-links a:hover, .nav-links a.active { color:var(--accent); }
 @media (max-width:600px) { .nav-links { display:none; } }
 
@@ -34,6 +34,9 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(248,2
 .profile-text { font-size:0.82rem; color:var(--text-muted); line-height:2; margin-bottom:1.2rem; }
 .sub-title { font-size:0.8rem; font-weight:500; color:var(--ink); margin-bottom:0.8rem; }
 
+.reg-badge { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.78rem; color:var(--accent); background:rgba(45,90,61,0.07); border:1px solid rgba(45,90,61,0.2); border-radius:3px; padding:0.5rem 0.9rem; margin-bottom:1.4rem; }
+.reg-badge b { font-family:'JetBrains Mono',monospace; font-weight:500; }
+
 .skill-list { list-style:none; display:flex; flex-direction:column; gap:0.5rem; margin-bottom:2rem; }
 .skill-list li { font-size:0.8rem; color:var(--text-muted); padding-left:1rem; position:relative; line-height:1.7; }
 .skill-list li::before { content:'▸'; position:absolute; left:0; color:var(--accent2); font-size:0.7rem; }
@@ -46,15 +49,18 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(248,2
 .tl-year { font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--text-dim); padding-top:0.1rem; text-align:right; white-space:nowrap; }
 .tl-dot-wrap { display:flex; justify-content:center; padding-top:4px; }
 .tl-dot { width:10px; height:10px; border-radius:50%; background:var(--accent2); border:2px solid var(--paper); flex-shrink:0; }
+.tl-item.tl-highlight .tl-dot { background:var(--accent); width:12px; height:12px; }
 .tl-content { font-size:0.8rem; color:var(--text-muted); line-height:1.7; }
+.tl-item.tl-highlight .tl-content { color:var(--ink); font-weight:500; }
 
 footer { border-top:1px solid var(--border); padding:1.8rem 2rem; text-align:center; font-family:'JetBrains Mono',monospace; font-size:0.58rem; color:var(--text-dim); letter-spacing:0.1em; }
 </style>
 </head>
 <body>
 <nav>
-  <a href="index.html" class="nav-logo">酒井 健吾</a>
+  <a href="index.html" class="nav-logo">中小企業診断士　酒井</a>
   <ul class="nav-links">
+    <li><a href="index.html">トップ</a></li>
     <li><a href="services.html">サービス</a></li>
     <li><a href="cases.html">実績</a></li>
     <li><a href="profile.html" class="active">プロフィール</a></li>
@@ -76,15 +82,16 @@ footer { border-top:1px solid var(--border); padding:1.8rem 2rem; text-align:cen
       <div>
         <div class="profile-name">酒井 健吾</div>
         <div class="profile-role">中小企業診断士 ／ データサイエンティスト</div>
-        <p class="profile-text">大手製造業（タイヤメーカー）にてR&D・新規事業開発に従事する現役データサイエンティスト。タイヤ材料設計から始まり、現在は走行データを活用した営業DXアルゴリズムの開発を主導しています。</p>
-        <p class="profile-text">「製造業の現場経験」「因果推論・ベイズ統計などの高度な統計解析力」「中小企業診断士資格」の3軸を掛け合わせ、データ活用と経営改善を一体的に支援します。</p>
+        <p class="profile-text">大手製造業にて研究開発・新規事業開発に従事する現役データサイエンティスト。製品開発の現場からキャリアをスタートし、現在はデータを活用した新規事業立ち上げや営業DXの推進を主導しています。</p>
+        <p class="profile-text">「製造業の現場経験」「現場に即した、わかりやすいデータ活用力」「中小企業診断士資格」の3軸を掛け合わせ、経営者様と同じ目線に立ちながら、データ活用と経営改善を一体的に支援します。</p>
+        <div class="reg-badge">📋 中小企業診断士 登録番号 <b>431403</b>（2026年7月登録済）</div>
         <div class="sub-title">保有資格・スキル</div>
         <ul class="skill-list">
-          <li>中小企業診断士（R7年度合格・ストレート合格）</li>
+          <li>中小企業診断士（登録番号431403）</li>
           <li>統計検定準1級・2級</li>
           <li>TOEIC 880点</li>
           <li>Python（7年）/ Excel（12年）</li>
-          <li>因果推論・ベイズ統計・機械学習・画像解析</li>
+          <li>むずかしい数字も、わかりやすくかみ砕いて解説</li>
         </ul>
       </div>
       <div>
@@ -93,37 +100,37 @@ footer { border-top:1px solid var(--border); padding:1.8rem 2rem; text-align:cen
           <div class="tl-item">
             <div class="tl-year">2017</div>
             <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-            <div class="tl-content">大手製造業 入社。生産技術・配合開発に従事。</div>
-            <div class="tl-line"></div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-year">2018</div>
-            <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-            <div class="tl-content">大手製造業（タイヤメーカー）入社。R&D部門にてタイヤ材料設計・市場評価・工場スケールアップを担当。</div>
+            <div class="tl-content">大手製造業に入社。研究開発部門にて、新製品の開発や生産現場の改善業務に従事。</div>
             <div class="tl-line"></div>
           </div>
           <div class="tl-item">
             <div class="tl-year">2021</div>
             <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-            <div class="tl-content">社内データサイエンスコンペ 3位入賞。</div>
+            <div class="tl-content">社内データ分析コンペティションで上位入賞したことをきっかけに、データ活用の道へ。</div>
             <div class="tl-line"></div>
           </div>
           <div class="tl-item">
             <div class="tl-year">2023</div>
             <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-            <div class="tl-content">新規事業開発部門へ異動。走行データを活用した営業DXアルゴリズム開発を主導。</div>
+            <div class="tl-content">新規事業開発部門へ異動。データを活用した営業支援の仕組みづくりを主導。</div>
             <div class="tl-line"></div>
           </div>
           <div class="tl-item">
-            <div class="tl-year">2025</div>
+            <div class="tl-year">2025.6</div>
             <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-            <div class="tl-content">中小企業診断士試験 ストレート合格（合格率約4%）。実務補習を通じて経営診断を経験。</div>
+            <div class="tl-content">中小企業診断士試験に合格（合格率約4%のストレート合格）。実務補習を通じて複数の中小企業の経営診断を経験。</div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-item tl-highlight">
+            <div class="tl-year">2026.7</div>
+            <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+            <div class="tl-content">中小企業診断士として登録（登録番号431403）。</div>
             <div class="tl-line"></div>
           </div>
           <div class="tl-item">
-            <div class="tl-year">2026</div>
+            <div class="tl-year">2026.8〜</div>
             <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-            <div class="tl-content">中小企業診断士として副業コンサルタント活動を開始。</div>
+            <div class="tl-content">中小企業診断士として、会社員としての知見を活かしながら経営支援活動を展開中。</div>
             <div class="tl-line"></div>
           </div>
         </div>
