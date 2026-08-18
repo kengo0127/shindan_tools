@@ -166,8 +166,10 @@ body {
   align-items: center;
   gap: 4px;
 }
-.qr-area canvas {
+.qr-area img {
   display: block;
+  width: 60px;
+  height: 60px;
 }
 .qr-label {
   font-family: 'JetBrains Mono', monospace;
@@ -222,47 +224,15 @@ body {
   </div>
 
   <div class="qr-area">
-    <canvas id="qrCanvas"></canvas>
-    <div class="qr-label">お問い合わせ</div>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQAQMAAAC6caSPAAAABlBMVEX49e8tWj16x4CEAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACJ0lEQVR4nO2bPW7DMAyFaXTImCPkKD6afTQfJUfImMEIa/5KSouiQ6UGyHuTLPPz9EBRlEwEvbNmTt3l+cTbxDcZXVge6JiuYnYgQEYgjzCovHto1KFlt5mYjhggQAYhZ7Ho1QJEk1n2kgavYoAAGY7MMtomjy0JFgiQf0QOE7udF5mJbAsEyHjEZU4uxad7u40BAmQIwqkoR2WXtOy/3FgBAdIBaaVLvvjWEDJv/yggQP4eCZce6bTYOdZ9EXPtbSBARiCmDys+ORPsMcNMdf5dld+BAHlNZM4MnKUCPTemDu5GRUCA9EZIAlaq8+1kvtUKlstWq87JQIB0RfRRA0LRHdXiYcsPLVk8AAHSHdHO51751gLKjH9klemqoQoESD+EKBDRI6L0nQ4ozuLTyUCAdEemqtTU2lS9vWbKrWKiNgACpDMSAe5bs/PZR5JtvzamgADpjnBzciTSXih7l0k5Xfel78Q7ECAjED1V/7A9EfsR+9nX/TtF096RMD8QIL0Rb2ymsqekonqDDwTICyPk5i8XQUtO3rKCWOV06TknAwHSBWk0lxsjmYFtJmpaIEBGIDOnfAc15zuOq6FtEgYCpDtS30+m9sYds10EJYqeABAgo5By/WPOpr2t8r6xiplrffwEBMgoREabX/s01+qMjBYZfeNkIED6I/fshbJHn+qfNIEAGYS4WqT0lJrfjoAAGYJw6p58fcSZny1NeyBAXg+B3lefPX5EI+dkjY0AAAAASUVORK5CYII=" alt="QRコード（ホームページ）">
+    <div class="qr-label">ホームページ</div>
   </div>
 </div>
 
 <div class="note">
   ※ 顔写真を追加する場合は photo-area 内のコメントを外して写真ファイルを指定してください<br>
-  ※ 印刷時は A4 用紙に拡大・縮小なしで印刷し、切り取ってください
+  ※ 印刷時は A4 用紙に拡大・縮小なしで印刷し、切り取ってください<br>
+  ※ QRコードは https://kengo0127.github.io/shindan_tools/ を埋め込み済み（画像化済みのため外部APIに依存しません）
 </div>
-
-<script>
-// QR生成（qrcode-generator ライブラリをインライン実装の代わりにCDN使用）
-(function(){
-  // シンプルなQR生成をGoogle Charts APIで取得してCanvasに描画
-  const url = "https://kengo0127.github.io/shindan_tools/contact.html";
-  const size = 60;
-  const canvas = document.getElementById("qrCanvas");
-  canvas.width = size;
-  canvas.height = size;
-  const ctx = canvas.getContext("2d");
-
-  // 背景
-  ctx.fillStyle = "#f8f5ef";
-  ctx.fillRect(0, 0, size, size);
-
-  // Google Charts QR API経由で画像取得してCanvasに描画
-  const img = new Image();
-  img.crossOrigin = "anonymous";
-  img.onload = function() {
-    ctx.drawImage(img, 0, 0, size, size);
-  };
-  img.onerror = function() {
-    // フォールバック: テキスト表示
-    ctx.fillStyle = "#2d5a3d";
-    ctx.font = "5px monospace";
-    ctx.fillText("QR", 20, 30);
-  };
-  img.src = "https://chart.googleapis.com/chart?chs=" + size + "x" + size +
-    "&cht=qr&chl=" + encodeURIComponent(url) +
-    "&chco=2d5a3d&chf=bg,s,f8f5ef";
-})();
-</script>
 </body>
 </html>
